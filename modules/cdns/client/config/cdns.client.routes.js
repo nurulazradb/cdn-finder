@@ -11,7 +11,7 @@
     $stateProvider
       .state('cdns', {
         abstract: true,
-        url: '/cdns',
+        url: '/',
         template: '<ui-view/>'
       })
       .state('cdns.list', {

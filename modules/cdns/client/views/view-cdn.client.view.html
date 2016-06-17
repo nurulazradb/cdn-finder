@@ -1,6 +1,6 @@
 <section>
   <div class="page-header">
-    <h1 ng-bind="vm.cdn.name"></h1>
+    <h1 ng-bind="vm.cdn.name"></h1> <small>Version: {{vm.cdn.version}}</small>
   </div>
   <div class="pull-right" ng-show="vm.cdn.isCurrentUserOwner">
     <a class="btn btn-primary" ui-sref="cdns.edit({ cdnId: vm.cdn._id })">
@@ -20,4 +20,6 @@
     </em>
   </small>
   <p class="lead" ng-bind="vm.cdn.description"></p>
+  <br>
+  <input type="text" class="form-control" value="{{vm.cdn.url}}">
 </section>
