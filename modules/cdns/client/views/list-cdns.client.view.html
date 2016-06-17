@@ -1,0 +1,21 @@
+<section>
+  <div class="page-header">
+    <h1>CDN Libraries</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="cdn in vm.cdns" ui-sref="cdns.view({ cdnId: cdn._id })" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="cdn.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="cdn.user" ng-bind="cdn.user.displayName"></span>
+        <span ng-if="!cdn.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="cdn.name"></h4>
+      <p class="list-group-item-text" ng-bind="cdn.description"></p>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.cdns.$resolved && !vm.cdns.length">
+    No libraries yet, why don't you <a ui-sref="cdns.create">add one</a>?
+  </div>
+</section>

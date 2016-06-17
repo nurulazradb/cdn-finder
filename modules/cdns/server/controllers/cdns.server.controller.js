@@ -114,7 +114,7 @@ exports.cdnByID = function (req, res, next, id) {
         message: 'No cdn with that identifier has been found'
       });
     }
-    req.article = cdn;
+    req.cdn = cdn;
     next();
   });
 };
