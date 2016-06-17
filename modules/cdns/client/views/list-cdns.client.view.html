@@ -2,8 +2,21 @@
   <div class="page-header">
     <h1>CDN Libraries</h1>
   </div>
+  <form class="form-inline">
+    <div class="form-group">
+      Search:
+      <input type="text" class="form-control" ng-model="searchText" placeholder="Filter Libraries...">
+    </div>
+    <div class="form-group">
+      Filter By Type:
+      <select class="form-control" ng-model="filterItem.type" ng-options="item.name for item in filterOptions.types">
+
+      </select>
+    </div>
+  </form>
+  <br>
   <div class="list-group">
-    <div ng-repeat="cdn in vm.cdns" class="list-group-item">
+    <div ng-repeat="cdn in vm.cdns | filter:searchText | filter:customFilter" class="list-group-item">
       <a  ui-sref="cdns.view({ cdnId: cdn._id })"><h4 class="list-group-item-heading" ng-bind="cdn.name"></h4></a>
       <p class="list-group-item-text" ng-bind="cdn.description"></p>
       <br>
